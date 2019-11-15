@@ -16,7 +16,7 @@
 ######## Edit the following to reflect your directory (mandatory):
 
 # root directory for the test files
-$test_files_root = "$ENV{HOME}/cse-dept/public_html/csce355/prog-proj/test-files";
+$test_files_root = "$ENV{HOME}/Desktop/csce355/csce355_project/test-files";
 
 ######## Editing below this line is strictly optional. ########
 
@@ -565,7 +565,7 @@ sub now {
     } else {
 	$ret .= "EST";
     }
-    return $ret;    
+    return $ret;
 }
 
 
