@@ -10,8 +10,16 @@ print(data[3])
 firstLine = list(data[3])
 # print(firstLine)
 
-firstLine.remove('4')
+# firstLine.remove('4')
 
 
 for x in range(len(firstLine)):
-    print firstLine[x],
+    if firstLine[x] == '{':
+        print('')
+    elif firstLine[x] == '}':
+        print('')
+    elif firstLine[x] == ',':
+        print('')
+    else:
+        # print (firstLine[x])
+        del firstLine[x]
