@@ -14,6 +14,21 @@ def Union(lst1, lst2):
     final_list = list(set().union(lst1, lst2))
     return final_list
 
+def part2(test_list):
+    for x in range(len(test_list)):
+        for y in range(len(test_list[x][0])):
+            start_edge = int(test_list[x][0][y])
+            next_edge = test_list[start_edge][0]
+            if next_edge == [] :
+                ab = 1
+                while ab < len(test_list[start_edge]) :
+                    if test_list[start_edge][ab] != [] :
+                        test_list[x][ab] = list(set().union( test_list[x][ab], test_list[start_edge][ab]))
+                    ab += 1
+            # else:
+            #     print(test_list[x][0][y]),
+
+
 with open(sys.argv[1]) as my_file:
     data = my_file.readlines()
     # data = [x.strip() for x in data]
@@ -86,70 +101,50 @@ for c in range(len(test_list)):
         # print(numbers),
         test_list_final.append(findAllNumbers)
 
-#check for number 2 - move from e to a state with no e moves!!
+part2(test_list)
+
+##### still working on it. the idea is basically to kinda of recurisce to check if the edge keep going
+##### all the way to []
 for x in range(len(test_list)):
+    for y in range(len(test_list[x][0])):
+        start_edge = int(test_list[x][0][y])
+        for z in range(len(test_list[start_edge][0])):
+            next_edge_int = int(test_list[start_edge][0][z])
+            print('the level: '),
+            print(test_list[x][0])
+            print('and the traget state has an edge to : '),
+            print(next_edge_int)
+
+
+# def part2(test_list):
+#     for x in range(len(test_list)):
+#         for y in range(len(test_list[x][0])):
+#             start_edge = int(test_list[x][0][y])
+#             next_edge = test_list[start_edge][0]
+#             if next_edge == [] :
+#                 ab = 1
+#                 while ab < len(test_list[start_edge]) :
+#                     if test_list[start_edge][ab] != [] :
+#                         test_list[x][ab] = list(set().union( test_list[x][ab], test_list[start_edge][ab]))
+#                     ab += 1
+#             # else:
+#             #     print(test_list[x][0][y]),
+
+########## part 2 #############
+
+
     #print(test_list[x]),
     #[['5', '9'], [], []] [['0', '7'], [], ['6']] [[], [], ['8']] [['8'], [], []] [[], ['1', '2'], ['3']] [['2'],
     #[], []][['2', '6'], [], ['3', '4', '8']] [[], ['6'], ['6']] [['7'], [], ['9']] [['0'], [], ['5', '7']]
-    for y in range(len(test_list[x][0])):
-        # print(test_list[x][0]),
-        # ['5', '9'] ['5', '9'] ['0', '7'] ['0', '7'] ['8'] ['2'] ['2', '6'] ['2', '6'] ['7'] ['0']
-        for z in range(len(test_list[x][0][y])):
-            # print(test_list[x][0][y]),
-            # 5 9 0 7 8 2 2 6 7 0
-            start_edge = int(test_list[x][0][y])
-            next_edge = test_list[start_edge][0]
-            # if yes - there isn't e move at the givin states -> check where the a,b,... are going to 
-            if next_edge == [] :
-                ab = 1
-                while ab < len(test_list[start_edge]) :
-                    if test_list[start_edge][ab] != [] :
-                        test_list[x][ab] = list(set().union( test_list[x][ab], test_list[start_edge][ab]))
-                        print(test_list[x])
-                    ab += 1
+
+    # print(test_list[x][0]),
+    # ['5', '9'] ['5', '9'] ['0', '7'] ['0', '7'] ['8'] ['2'] ['2', '6'] ['2', '6'] ['7'] ['0']
+
+    # print(test_list[x][0][y]),
+    # 5 9 0 7 8 2 2 6 7 0
+########## end part 2 #############
 
 
-
-# for z in range(len(test_list)):
-#     # print(test_list),
-#     for x in range(len(test_list[z])):
-#         # check for empty states first
-#         if len(test_list[z][0]) == 0 :
-#             pass
-#         #not empty! greate now check where the line is going to
-#         else:
-#             print('check if edge exist at state: '),
-#             print(test_list[z][0])
-#             for y in range(len(test_list[z][0][0])):
-#                 check_if_edge_star = int(test_list[z][0][y])
-#                 print(check_if_edge_star)
-#                 if check_if_edge_star != 0 :
-#                     check_if_edge_end = test_list[check_if_edge_star][x]
-#                     print(check_if_edge_end)
-#             print('')
-
-#-----------------------------------------------------------#
-#print(test_list[0])
-#[['5', '9'], [], []]
-
-#print(test_list[0][0])
-#['5', '9']
-
-#print(test_list[0][0][0])
-#5
-#-----------------------------------------------------------#
-
-
-
-# empty list
-# if len(test_list[0][1]) == 0 :
-#     print('empty')
-
-
-## test_list[z][x][y] - >
-## z => state lile e or a or b
-## x => the line |
-## y => the row --
 
 ####### OUTPUT #######
 
