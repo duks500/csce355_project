@@ -14,19 +14,24 @@ def Union(lst1, lst2):
     final_list = list(set().union(lst1, lst2))
     return final_list
 
-def part2(test_list):
-    for x in range(len(test_list)):
-        for y in range(len(test_list[x][0])):
-            start_edge = int(test_list[x][0][y])
-            next_edge = test_list[start_edge][0]
-            if next_edge == [] :
-                ab = 1
-                while ab < len(test_list[start_edge]) :
-                    if test_list[start_edge][ab] != [] :
-                        test_list[x][ab] = list(set().union( test_list[x][ab], test_list[start_edge][ab]))
-                    ab += 1
-            # else:
-            #     print(test_list[x][0][y]),
+
+def part4(test_og, test_q , testr , test_x):
+    if testr == [] : ## the wanted state has no e moves
+        start_edge = int(test_q) #the index of the state
+        ab = 1
+        while ab < len(test_og[start_edge]) :
+            if test_og[start_edge][ab] != [] : # the state is not empty! do the union
+                test_x[ab] = list(set().union( test_x[ab] , test_og[start_edge][ab]))
+            # else: # set has no e movment - do nothing
+            ab += 1
+
+## test_list = list
+## t_int = the current number of int like if we have [5,9] - looking at 5
+def lastPart(test_list, t_int):
+    if test_list[x][0] != [] :
+        print(test_list[x][0][z]),
+        r_int = int(test_list[x][0][z])
+        print(r_int)
 
 
 with open(sys.argv[1]) as my_file:
@@ -101,34 +106,45 @@ for c in range(len(test_list)):
         # print(numbers),
         test_list_final.append(findAllNumbers)
 
-part2(test_list)
 
-##### still working on it. the idea is basically to kinda of recurisce to check if the edge keep going
-##### all the way to []
 for x in range(len(test_list)):
     for y in range(len(test_list[x][0])):
-        start_edge = int(test_list[x][0][y])
-        for z in range(len(test_list[start_edge][0])):
-            next_edge_int = int(test_list[start_edge][0][z])
-            print('the level: '),
-            print(test_list[x][0])
-            print('and the traget state has an edge to : '),
-            print(next_edge_int)
+        edge_q = int(test_list[x][0][y])
+        edge_r = test_list[edge_q][0]
+        part4(test_list , test_list[x][0][y] , test_list[edge_q][0], test_list[x])
+
+# for x in range(len(test_list)):
+    # for y in range(len(test_list[x])):
+    #     for z in range(len(test_list[x][y])):
+    #         if y != 0:
+    #             s_edge = int(test_list[x][y][z]) #movment from s to r
+    #
+    #             print(s_edge)
 
 
-# def part2(test_list):
-#     for x in range(len(test_list)):
-#         for y in range(len(test_list[x][0])):
-#             start_edge = int(test_list[x][0][y])
-#             next_edge = test_list[start_edge][0]
-#             if next_edge == [] :
-#                 ab = 1
-#                 while ab < len(test_list[start_edge]) :
-#                     if test_list[start_edge][ab] != [] :
-#                         test_list[x][ab] = list(set().union( test_list[x][ab], test_list[start_edge][ab]))
-#                     ab += 1
-#             # else:
-#             #     print(test_list[x][0][y]),
+# for x in range(len(test_list)):
+#     for y in range(len(test_list[x])):
+#             for z in range(len(test_list[x][0])) :
+#                 #start recursive here
+#                 lastPart(test_list, 0)
+print('before')
+
+for x in range(len(test_list)):
+    print(test_list[x])
+
+# def part4(test_og, test_q , testr , test_x):
+#     if testr == [] : ## the wanted state has no e moves
+#         start_edge = int(test_q) #the index of the state
+#         ab = 1
+#         while ab < len(test_og[start_edge]) :
+#             if test_og[start_edge][ab] != [] : # the state is not empty! do the union
+#                 test_x[ab] = list(set().union( test_x[ab] , test_og[start_edge][ab]))
+#             # else: # set has no e movment - do nothing
+#             ab += 1
+
+
+#test_x[ab] = list(set().union( test_x[ab] , test_og[start_edge][ab]))
+
 
 ########## part 2 #############
 

@@ -1,4 +1,5 @@
 comments.txt exists -- making backup comments.bak
+Use of uninitialized value in pattern match (m//) at project-test.pl line 426.
 
 Done.
 Comments are in test-files/e-remove/comments.txt

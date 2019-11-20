@@ -1,11 +1,12 @@
-Number of states: 8
-Alphabet size: 2
-Accepting states: 6 7 
-{} {} {}
-{} {} {}
-{} {} {}
-{} {} {}
-{} {} {}
-{} {} {}
-{} {} {}
-{} {7} {0}
+no novment
+[['7'], ['7'], ['0']] ->add here 0 <- [['1'], [], []] e:  ['1']  add by u: 1 [['2'], [], []]
+here ['2']
+here []
+here []
+
+no novment
+[[], ['7'], ['0']] ->add here 0 <- [['1'], [], []] e:  ['1']  add by u: 1 [['2'], [], []]
+here ['2']
+here []
+here []
+
