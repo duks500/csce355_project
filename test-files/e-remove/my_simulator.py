@@ -25,13 +25,17 @@ def part4(test_og, test_q , testr , test_x):
             # else: # set has no e movment - do nothing
             ab += 1
 
-## test_list = list
-## t_int = the current number of int like if we have [5,9] - looking at 5
-def lastPart(test_list, t_int):
-    if test_list[x][0] != [] :
-        print(test_list[x][0][z]),
-        r_int = int(test_list[x][0][z])
-        print(r_int)
+def finalPart(test_list , test_list_x , r_state):  
+    if r_state[0] == [] : ## no more movment on e
+        #take union
+        test_list[x][y] = list(set().union( test_list[y] , r_state))
+        print('if')
+        print(r_state),
+        print('1')
+        print(r_state[z])
+    else :
+        print('else'),
+        print(r_state)
 
 
 with open(sys.argv[1]) as my_file:
@@ -111,40 +115,27 @@ for x in range(len(test_list)):
     for y in range(len(test_list[x][0])):
         edge_q = int(test_list[x][0][y])
         edge_r = test_list[edge_q][0]
-        part4(test_list , test_list[x][0][y] , test_list[edge_q][0], test_list[x])
+        # part4(test_list , test_list[x][0][y] , test_list[edge_q][0], test_list[x])
 
-# for x in range(len(test_list)):
-    # for y in range(len(test_list[x])):
-    #     for z in range(len(test_list[x][y])):
-    #         if y != 0:
-    #             s_edge = int(test_list[x][y][z]) #movment from s to r
-    #
-    #             print(s_edge)
+for x in range(len(test_list)):
+    for y in range(len(test_list[x][0])): ## there is a move at e
+        for z in range(len(test_list[x][0])): ## look for the next state
+            r_int = int(test_list[x][0][z])
+            r_state = test_list[r_int]
+            finalPart(test_list , test_list[x] , r_state)
 
 
-# for x in range(len(test_list)):
-#     for y in range(len(test_list[x])):
-#             for z in range(len(test_list[x][0])) :
-#                 #start recursive here
-#                 lastPart(test_list, 0)
-print('before')
+print('---')
+for x in range(len(test_list)):
+    print(test_list[x])
+print('---')
+# delete the e moves
+for x in range(len(test_list)):
+    for z in range(len(test_list[x][0])):
+           test_list[x][0] = []
 
 for x in range(len(test_list)):
     print(test_list[x])
-
-# def part4(test_og, test_q , testr , test_x):
-#     if testr == [] : ## the wanted state has no e moves
-#         start_edge = int(test_q) #the index of the state
-#         ab = 1
-#         while ab < len(test_og[start_edge]) :
-#             if test_og[start_edge][ab] != [] : # the state is not empty! do the union
-#                 test_x[ab] = list(set().union( test_x[ab] , test_og[start_edge][ab]))
-#             # else: # set has no e movment - do nothing
-#             ab += 1
-
-
-#test_x[ab] = list(set().union( test_x[ab] , test_og[start_edge][ab]))
-
 
 ########## part 2 #############
 
@@ -165,18 +156,20 @@ for x in range(len(test_list)):
 ####### OUTPUT #######
 
 #number pf states is the same
-# print(string_number_states),
-#
-# #alphabet size
-# print(string_alphabet_size),
-#
-#
-# # remove duplicate and sort the list from smallest to biggest
-# print('Accepting states:'),
-# accept_numbers_final = list(set(accept_numbers))
-# for x in range(len(accept_numbers_final)):
-#     print(accept_numbers_final[x]),
-# print('')
+print(string_number_states)
+
+#alphabet size
+print(string_alphabet_size)
+
+
+# remove duplicate and sort the list from smallest to biggest
+print('Accepting states:'),
+accept_numbers_final = list(set(accept_numbers))
+for x in range(len(accept_numbers_final)):
+    accept_numbers_nt = int(accept_numbers_final[x])
+    print(accept_numbers_nt),
+
+
 #
 # ###### transfer every e transition to 0 - {}
 # y = 3
