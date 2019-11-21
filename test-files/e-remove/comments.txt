@@ -1,38 +1,20 @@
-Comments for self-test -------- Wed Nov 20, 2019 at 16:12:58 EST
+Comments for self-test -------- Wed Nov 20, 2019 at 23:22:20 EST
 parsing e-remove.txt ... done
 building e-remove ...
 done
 testing e-remove ...
   Running e-remove on /home/itay/Desktop/csce355/csce355_project/test-files/e-remove/test-e-NFA1.txt ...
     python my_simulator.py /home/itay/Desktop/csce355/csce355_project/test-files/e-remove/test-e-NFA1.txt > test-outputs/e-remove/testNFA1-out.txt 2> test-outputs/e-remove/testNFA1-err.txt
-    terminated abnormally
-  standard error output:
-vvvvv
-Traceback (most recent call last):
-  File "my_simulator.py", line 125, in <module>
-    finalPart(test_list , test_list[x] , r_state)
-  File "my_simulator.py", line 31, in finalPart
-    test_list[x][y] = list(set().union( test_list[y] , r_state))
-TypeError: unhashable type: 'list'
-^^^^^
+    terminated normally
   test-outputs/e-remove/testNFA1.txt exists -- comparing with solution NFA
-    Line 1 is malformed
+    Line 3 is malformed
   THE DFAs DIFFER (INCORRECT):
 vvvvv
 1
 ^^^^^
   Running e-remove on /home/itay/Desktop/csce355/csce355_project/test-files/e-remove/test-e-NFA2.txt ...
     python my_simulator.py /home/itay/Desktop/csce355/csce355_project/test-files/e-remove/test-e-NFA2.txt > test-outputs/e-remove/testNFA2-out.txt 2> test-outputs/e-remove/testNFA2-err.txt
-    terminated abnormally
-  standard error output:
-vvvvv
-Traceback (most recent call last):
-  File "my_simulator.py", line 125, in <module>
-    finalPart(test_list , test_list[x] , r_state)
-  File "my_simulator.py", line 31, in finalPart
-    test_list[x][y] = list(set().union( test_list[y] , r_state))
-TypeError: unhashable type: 'list'
-^^^^^
+    terminated normally
   test-outputs/e-remove/testNFA2.txt exists -- comparing with solution NFA
     Line 1 is malformed
   THE DFAs DIFFER (INCORRECT):
@@ -41,16 +23,7 @@ vvvvv
 ^^^^^
   Running e-remove on /home/itay/Desktop/csce355/csce355_project/test-files/e-remove/test-e-NFA3.txt ...
     python my_simulator.py /home/itay/Desktop/csce355/csce355_project/test-files/e-remove/test-e-NFA3.txt > test-outputs/e-remove/testNFA3-out.txt 2> test-outputs/e-remove/testNFA3-err.txt
-    terminated abnormally
-  standard error output:
-vvvvv
-Traceback (most recent call last):
-  File "my_simulator.py", line 125, in <module>
-    finalPart(test_list , test_list[x] , r_state)
-  File "my_simulator.py", line 31, in finalPart
-    test_list[x][y] = list(set().union( test_list[y] , r_state))
-TypeError: unhashable type: 'list'
-^^^^^
+    terminated normally
   test-outputs/e-remove/testNFA3.txt exists -- comparing with solution NFA
     Line 1 is malformed
   THE DFAs DIFFER (INCORRECT):
@@ -59,16 +32,7 @@ vvvvv
 ^^^^^
   Running e-remove on /home/itay/Desktop/csce355/csce355_project/test-files/e-remove/test-e-NFA4.txt ...
     python my_simulator.py /home/itay/Desktop/csce355/csce355_project/test-files/e-remove/test-e-NFA4.txt > test-outputs/e-remove/testNFA4-out.txt 2> test-outputs/e-remove/testNFA4-err.txt
-    terminated abnormally
-  standard error output:
-vvvvv
-Traceback (most recent call last):
-  File "my_simulator.py", line 125, in <module>
-    finalPart(test_list , test_list[x] , r_state)
-  File "my_simulator.py", line 31, in finalPart
-    test_list[x][y] = list(set().union( test_list[y] , r_state))
-TypeError: unhashable type: 'list'
-^^^^^
+    terminated normally
   test-outputs/e-remove/testNFA4.txt exists -- comparing with solution NFA
     Line 1 is malformed
   THE DFAs DIFFER (INCORRECT):
@@ -77,16 +41,7 @@ vvvvv
 ^^^^^
   Running e-remove on /home/itay/Desktop/csce355/csce355_project/test-files/e-remove/test-e-NFA5.txt ...
     python my_simulator.py /home/itay/Desktop/csce355/csce355_project/test-files/e-remove/test-e-NFA5.txt > test-outputs/e-remove/testNFA5-out.txt 2> test-outputs/e-remove/testNFA5-err.txt
-    terminated abnormally
-  standard error output:
-vvvvv
-Traceback (most recent call last):
-  File "my_simulator.py", line 125, in <module>
-    finalPart(test_list , test_list[x] , r_state)
-  File "my_simulator.py", line 31, in finalPart
-    test_list[x][y] = list(set().union( test_list[y] , r_state))
-TypeError: unhashable type: 'list'
-^^^^^
+    terminated normally
   test-outputs/e-remove/testNFA5.txt exists -- comparing with solution NFA
     Line 1 is malformed
   THE DFAs DIFFER (INCORRECT):
@@ -97,20 +52,16 @@ vvvvv
     python my_simulator.py /home/itay/Desktop/csce355/csce355_project/test-files/e-remove/test-e-NFA6.txt > test-outputs/e-remove/testNFA6-out.txt 2> test-outputs/e-remove/testNFA6-err.txt
     terminated normally
   test-outputs/e-remove/testNFA6.txt exists -- comparing with solution NFA
-    Line 1 is malformed
-  THE DFAs DIFFER (INCORRECT):
-vvvvv
-1
-^^^^^
+  the NFAs are the same (correct)
 done with e-remove
 
 ######################################################
 Summary for self-test:
 
 e-remove: execution always completed, but there were errors
-  progress level 4 with 6 execution errors
+  progress level 4 with 5 execution errors
 simulate: not implemented -- simulate.txt does not exist
   progress level 0 with 0 execution errors
 
-There were a total of 6 execution errors found.
+There were a total of 5 execution errors found.
 ######################################################

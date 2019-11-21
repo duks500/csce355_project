@@ -1,5 +1,33 @@
-else [['2'], [], []]
-else [['0'], [], ['5', '7']]
-else [['2'], [], []]
-else [['0'], [], ['5', '7']]
-else [['5', '9'], [], []]
+2 0
+0 0
+equal - no more
+2 0
+0 0
+equal - no more
+5 1
+9 1
+5 1
+9 1
+7 3
+2 6
+6 6
+equal - no more
+2 6
+6 6
+equal - no more
+5 9
+9 9
+equal - no more
+Number of states: 10
+Alphabet size: 2
+Accepting states: 2 5 6 
+{} {} {}
+{} {} {6}
+{} {} {8}
+{} {} {}
+{} {1,2} {3}
+{} {} {}
+{} {} {3,4,8}
+{} {6} {6}
+{} {} {9}
+{} {} {5,7}

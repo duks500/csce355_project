@@ -131,17 +131,12 @@ for x in range(len(test_list)):
             finalPart(test_list, r_state)
 
 
-print('---')
-for x in range(len(test_list)):
-    print(test_list[x])
-print('---')
 # delete the e moves
 for x in range(len(test_list)):
     for z in range(len(test_list[x][0])):
            test_list[x][0] = []
 
-for x in range(len(test_list)):
-    print(test_list[x])
+
 
 ########## part 2 #############
 
@@ -162,10 +157,11 @@ for x in range(len(test_list)):
 ####### OUTPUT #######
 
 #number pf states is the same
-print(string_number_states)
+print(string_number_states),
+
 
 #alphabet size
-print(string_alphabet_size)
+print(string_alphabet_size),
 
 
 # remove duplicate and sort the list from smallest to biggest
@@ -174,43 +170,53 @@ accept_numbers_final = list(set(accept_numbers))
 for x in range(len(accept_numbers_final)):
     accept_numbers_nt = int(accept_numbers_final[x])
     print(accept_numbers_nt),
+#
+print('')
+#
+# new_list = []
+# for x in range(len(test_list)):
+#     if x == 0 :
+#         test_list[x] = '{}'
+#         print('{}'),
+#     else :
+#         for y in range(len(test_list[x])):
+#             if len(test_list[x][y]) == 0 :
+#                 test_list[x][y] = '{}'
+#                 print('{}')
+#             elif len(test_list[x][y]) == 1:
+#                 # test_list[x][y] = '{' + test_list[x][y] + '}'
+#                 print('{'),
+#                 print(test_list[x][y][0]),
+#                 print('}'),
+            # else :
 
-for x in range(len(test_list)) :
-    for y in range(len(test_list[x])) :
-        for z in range(len(test_list[x][y])) :
-            print(test_list[x][y][z])
-            print(int_alp_size)
-            w = 0
-            while w < int_alp_size : ## amount of alphabet
-                print('{}'),
-                print('{'),
-                print(test_list[x][y][z]),
-                print('}')
-                w += 1
 
 
 
-# ###### transfer every e transition to 0 - {}
-# y = 3
-# while y < len(data):
-#     dataSplitLine = data[y].split()
-#     findAllNumbers = re.findall(r'(\d+),*' , dataSplitLine[0])
-#     numbers = [int(x) for x in findAllNumbers]
-#     numbers = {}
-#     dataSplitLine[0] = numbers
-#     print(dataSplitLine[0]),
-#     ## still need to work on this, must change dataSplitLine to the right name
-#     ##size of 64
-#     # print(dataSplitLine[1]),
-#     # print(dataSplitLine[2])
-#     x = 1
-#     lenght_of_list = len(dataSplitLine) - 1
-#     while x < len(dataSplitLine):
-#         if x == lenght_of_list:
-#             print(dataSplitLine[x])
-#         else:
-#             print(dataSplitLine[x]),
-#         x += 1
-#     y += 1
+
+
+
+###### transfer every e transition to 0 - {}
+y = 3
+while y < len(data):
+    dataSplitLine = data[y].split()
+    findAllNumbers = re.findall(r'(\d+),*' , dataSplitLine[0])
+    numbers = [int(x) for x in findAllNumbers]
+    numbers = {}
+    dataSplitLine[0] = numbers
+    print(dataSplitLine[0]),
+    ## still need to work on this, must change dataSplitLine to the right name
+    ##size of 64
+    # print(dataSplitLine[1]),
+    # print(dataSplitLine[2])
+    x = 1
+    lenght_of_list = len(dataSplitLine) - 1
+    while x < len(dataSplitLine):
+        if x == lenght_of_list:
+            print(dataSplitLine[x])
+        else:
+            print(dataSplitLine[x]),
+        x += 1
+    y += 1
 
 #################### end #######################3

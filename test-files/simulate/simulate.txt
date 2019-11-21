@@ -1,5 +1,0 @@
-# You still need to say "Build:" even though there are no build commands.
-Build:
-# Run the command
-Run:
-  python searcher.py
