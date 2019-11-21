@@ -1,4 +1,4 @@
-#!/usr/bin/python
+ #!/usr/bin/python
 
 import sys
 import re
@@ -174,6 +174,20 @@ accept_numbers_final = list(set(accept_numbers))
 for x in range(len(accept_numbers_final)):
     accept_numbers_nt = int(accept_numbers_final[x])
     print(accept_numbers_nt),
+
+for x in range(len(test_list)) :
+    for y in range(len(test_list[x])) :
+        for z in range(len(test_list[x][y])) :
+            print(test_list[x][y][z])
+            print(int_alp_size)
+            w = 0
+            while w < int_alp_size : ## amount of alphabet
+                print('{}'),
+                print('{'),
+                print(test_list[x][y][z]),
+                print('}')
+                w += 1
+
 
 
 # ###### transfer every e transition to 0 - {}
