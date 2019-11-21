@@ -25,17 +25,23 @@ def part4(test_og, test_q , testr , test_x):
             # else: # set has no e movment - do nothing
             ab += 1
 
-def finalPart(test_list , test_list_x , r_state):  
-    if r_state[0] == [] : ## no more movment on e
-        #take union
-        test_list[x][y] = list(set().union( test_list[y] , r_state))
-        print('if')
-        print(r_state),
-        print('1')
-        print(r_state[z])
-    else :
-        print('else'),
-        print(r_state)
+def finalPart(test_list ,  r_state):
+    p = 1
+    while p < len(r_state):
+        if r_state[p] != [] :
+            test_list[x][p] = list(set().union(test_list[x][p] , r_state[p]))
+        p += 1
+    for m in range(len(r_state[0])) :
+        int_r = int(r_state[0][m])
+        print(int_r),
+        print(x)
+        if x == int_r :
+            print('equal - no more')
+            return True
+        # else :
+            # finalPart(test_list , test_list[int_r])
+
+
 
 
 with open(sys.argv[1]) as my_file:
@@ -122,7 +128,7 @@ for x in range(len(test_list)):
         for z in range(len(test_list[x][0])): ## look for the next state
             r_int = int(test_list[x][0][z])
             r_state = test_list[r_int]
-            finalPart(test_list , test_list[x] , r_state)
+            finalPart(test_list, r_state)
 
 
 print('---')
@@ -170,7 +176,6 @@ for x in range(len(accept_numbers_final)):
     print(accept_numbers_nt),
 
 
-#
 # ###### transfer every e transition to 0 - {}
 # y = 3
 # while y < len(data):

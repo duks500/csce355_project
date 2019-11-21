@@ -1,84 +1,64 @@
-#!/usr/bin/env python
-import argparse
+#!/usr/bin/python
+import string
 import sys
+import re
 
-class DFA:
-    def __init__(self, nodes, alphabet):
-        self.nodes = nodes
-        self.alphabet = alphabet
+def part1(startstates):
+    print(startstates)
 
-    def run_simulation(self, test_string):
-        test_string_list = list(test_string)
+alphabet_ascii = string.ascii_lowercase
 
-        current_node = 0
+with open(sys.argv[1]) as my_file:
+    data = my_file.readlines()
+with open(sys.argv[2]) as my_file:
+    string_input = my_file.readlines()
 
-        for char in test_string_list:
-            # if the character isnt even in the alphabet dont bother
-            if char not in self.alphabet: 
-                sys.stdout.write("reject")
-                return
+# collect the string of number of states
+string_number_states = data[0]
+string_st_number = re.findall(r'\d' , data[0])
+to_number_st = [int(x) for x in string_st_number]
+int_states_size = len(data)
 
-            for edge in self.nodes[current_node].edges:
-                if char in edge:
-                    current_node = int(edge[1])
-                    break
+# collect the alphabet size
+string_alphabet_size = data[1]
+string_alp_number = re.findall(r'\d' , data[1])
+to_number = [int(x) for x in string_alp_number]
+int_alp_size = to_number.pop()
 
-        if self.nodes[current_node].accepting:
-            sys.stdout.write("accept")
-        else:
-            sys.stdout.write("reject")
-        
-class Node:
-    def __init__(self, id, accepting, edges):
-        self.id = id
-        self.accepting = accepting
-        self.edges = edges # list of tuples (character, next_node)
+# collect the numbers of the starting states
+acceptingStates = re.findall(r'(\d+),*' , data[2])
+accept_numbers = [int(x) for x in acceptingStates]
 
+lis = []
+alp_size =[]
+lis_int = []
 
-def main(dfa_info, test_strings):     
-    dfa_info_arr = dfa_info.split("\n")
-    test_strings = test_strings.split("\n")[:-1]
+b = 3
+while b < int_states_size:
+    dataSplitLine = data[b].split()
+    lis.append(dataSplitLine)
+    b += 1
+for c in range(len(lis)):
+    for d in range(len(lis[c])):
+        lis[c][d] = re.findall(r'(\d+),*' , lis[c][d])
 
-    num_states = int((dfa_info_arr[0])[18:]) # how many states 0-(n-1)
-    accepting_states = ((dfa_info_arr[1])[18:]).split(" ") # list of accepting states (strings of nums)
-    alphabet = list(((dfa_info_arr[2])[10:])) # list of alphabet chars
+c = 0
+while c < int_alp_size :
+    alp_size.append(alphabet_ascii[c])
+    c+=1
+print(alp_size)
 
-    table = dfa_info_arr[3:-1]
+print(string_input[0])
 
-    nodes = [] # initialize nodes
-
-    for state in range(0, num_states):
-        node_id = state
-        accepting = False
-
-        if str(node_id) in accepting_states:
-            accepting = True
-        
-        node_table_row_edges = table[state].split(" ")
-
-        edges = [] # initialize edges
-
-        for index, char in enumerate(alphabet):
-            edges.append((char, int(node_table_row_edges[index])))
-
-        nodes.append(Node(node_id, accepting, edges))
-
-    dfa = DFA(nodes, alphabet)
-
-    for string in test_strings:
-        dfa.run_simulation(string)
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('dfa_info')
-    parser.add_argument('test_strings')
-
-    args = parser.parse_args()
-
-    with open(args.dfa_info) as fileObj:
-        dfa_info = fileObj.read()
-
-    with open(args.test_strings) as fileObj:
-        test_strings = fileObj.read()
-
-    main(dfa_info, test_strings)
+for x in range(len(string_input)) :
+    for y in range(len(string_input[x])):
+        # print(string_input[x][y])
+        print(len(alp_size))
+        c = 0
+        while c < len(alp_size) :
+            if alp_size[c] == string_input[x] :
+                print(string_input[x])
+            c+=1
+            # int_try = int(alp_size[c])
+            # if alp_int == string_input[x][y] :
+            #     print('=')
